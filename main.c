@@ -5,6 +5,7 @@
 #include "lista/lista.h"
 #include "sort/sort_alg.h"
 #include "tabela_hash/tabela_hash.h"
+#include "arvore/arvore.h"
 
 void preencherListaCrescente(Lista *l, int n) {
     for (int i = 0; i < n; i++) {
@@ -62,15 +63,35 @@ void executaTeste(
 }
 
 int main(void) {
-    executaTeste("bubblesort.csv", bubblesort);
-    executaTeste("selectionsort.csv", selectionsort);
+    // executaTeste("bubblesort.csv", bubblesort);
+    // executaTeste("selectionsort.csv", selectionsort);
+    //
+    // ListaHash *l = CriaTabelaHash();
+    //
+    // InsereTabelaHash(l, 89);
+    //
+    // MostrarTabelaHash(l);
+    //
+    // printf("Buscar -> %d\n", BuscarTabelaHash(l, 89));
 
-    ListaHash *l = CriaTabelaHash();
+    Arvore *arvore = CriaArvore();
 
-    InsereTabelaHash(l, 89);
+    arvore->raiz = InserirNo(arvore->raiz, 6);
+    arvore->raiz = InserirNo(arvore->raiz, 2);
+    arvore->raiz = InserirNo(arvore->raiz, 7);
+    arvore->raiz = InserirNo(arvore->raiz, 4);
+    arvore->raiz = InserirNo(arvore->raiz, 3);
+    arvore->raiz = InserirNo(arvore->raiz, 5);
+    arvore->raiz = InserirNo(arvore->raiz, 10);
+    arvore->raiz = InserirNo(arvore->raiz, 9);
 
-    MostrarTabelaHash(l);
+    ImprimeArvore(arvore->raiz);
 
-    printf("Buscar -> %d\n", BuscarTabelaHash(l, 89));
+    printf("\n");
+
+    RemoverNo(arvore->raiz, 10);
+
+    ImprimeArvore(arvore->raiz);
+
     return 0;
 }

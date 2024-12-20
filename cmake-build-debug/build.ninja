@@ -73,6 +73,12 @@ build CMakeFiles/AtividadeAlgoritmos.dir/tabela_hash/tabela_hash.c.obj: C_COMPIL
   OBJECT_DIR = CMakeFiles\AtividadeAlgoritmos.dir
   OBJECT_FILE_DIR = CMakeFiles\AtividadeAlgoritmos.dir\tabela_hash
 
+build CMakeFiles/AtividadeAlgoritmos.dir/arvore/Arvore.c.obj: C_COMPILER__AtividadeAlgoritmos_unscanned_Debug C$:/Users/lucas/CLionProjects/AtividadeAlgoritmos/arvore/Arvore.c || cmake_object_order_depends_target_AtividadeAlgoritmos
+  DEP_FILE = CMakeFiles\AtividadeAlgoritmos.dir\arvore\Arvore.c.obj.d
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AtividadeAlgoritmos.dir
+  OBJECT_FILE_DIR = CMakeFiles\AtividadeAlgoritmos.dir\arvore
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target AtividadeAlgoritmos
@@ -81,7 +87,7 @@ build CMakeFiles/AtividadeAlgoritmos.dir/tabela_hash/tabela_hash.c.obj: C_COMPIL
 #############################################
 # Link the executable AtividadeAlgoritmos.exe
 
-build AtividadeAlgoritmos.exe: C_EXECUTABLE_LINKER__AtividadeAlgoritmos_Debug CMakeFiles/AtividadeAlgoritmos.dir/main.c.obj CMakeFiles/AtividadeAlgoritmos.dir/lista/lista.c.obj CMakeFiles/AtividadeAlgoritmos.dir/sort/sort_alg.c.obj CMakeFiles/AtividadeAlgoritmos.dir/tabela_hash/tabela_hash.c.obj
+build AtividadeAlgoritmos.exe: C_EXECUTABLE_LINKER__AtividadeAlgoritmos_Debug CMakeFiles/AtividadeAlgoritmos.dir/main.c.obj CMakeFiles/AtividadeAlgoritmos.dir/lista/lista.c.obj CMakeFiles/AtividadeAlgoritmos.dir/sort/sort_alg.c.obj CMakeFiles/AtividadeAlgoritmos.dir/tabela_hash/tabela_hash.c.obj CMakeFiles/AtividadeAlgoritmos.dir/arvore/Arvore.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\AtividadeAlgoritmos.dir

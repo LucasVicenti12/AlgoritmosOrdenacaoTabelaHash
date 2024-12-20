@@ -9,4 +9,6 @@ add_executable(AtividadeAlgoritmos main.c
         sort/sort_alg.h
         sort/sort_alg.c
         tabela_hash/tabela_hash.h
-        tabela_hash/tabela_hash.c)
+        tabela_hash/tabela_hash.c
+        arvore/arvore.h
+        arvore/Arvore.c)
