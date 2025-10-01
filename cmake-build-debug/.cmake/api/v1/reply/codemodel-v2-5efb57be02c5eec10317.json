@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "AtividadeAlgoritmos::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-AtividadeAlgoritmos-Debug-9ae0a8fe1c7375c7926f.json",
+					"jsonFile" : "target-AtividadeAlgoritmos-Debug-5e9464d597b6cc1613d4.json",
 					"name" : "AtividadeAlgoritmos",
 					"projectIndex" : 0
 				}
@@ -55,6 +55,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 7
+		"minor" : 8
 	}
 }

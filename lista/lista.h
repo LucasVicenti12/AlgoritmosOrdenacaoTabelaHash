@@ -5,15 +5,15 @@
 #ifndef LISTA_H_INCLUDED
 #define LISTA_H_INCLUDED
 
-typedef struct No
+typedef struct Elemento
 {
-    struct No *prox;
-    int chave;
-} No;
+    struct Elemento *prox;
+    int valor;
+} Elemento;
 
 typedef struct Lista
 {
-    No *pNo;
+    Elemento *pElemento;
 } Lista;
 
 // Cria uma lista com tamanho definido
@@ -24,13 +24,13 @@ void destruirLista(Lista *l);
 int tamanho(Lista *l);
 
 // Buscar um dado pela chave
-No *buscaPelaChave(Lista *l, int c);
+Elemento *buscaPelaChave(Lista *l, int c);
 // Retorna um elemento pela posição
-No *buscaPeloIndice(Lista *l, int i);
+Elemento *buscaPeloIndice(Lista *l, int i);
 // Adiciona um item no final da lista
-No *adicionaItemNoFinal(Lista *l, int c);
+Elemento *adicionaItemNoFinal(Lista *l, int c);
 // Adiciona um item no inicio da lista
-No *adicionaItemNoInicio(Lista *l, int c);
+Elemento *adicionaItemNoInicio(Lista *l, int c);
 // Percorre a lista
 void imprimeLista(Lista *l);
 

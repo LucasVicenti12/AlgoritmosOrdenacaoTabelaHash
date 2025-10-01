@@ -7,24 +7,24 @@
 
 #include <stdio.h>
 
-void trocaValores(No *a, No *b) {
-    int temp = a->chave;
-    a->chave = b->chave;
-    b->chave = temp;
+void trocaValores(Elemento *a, Elemento *b) {
+    int temp = a->valor;
+    a->valor = b->valor;
+    b->valor = temp;
 }
 
 void bubblesort(Lista *l) {
-    if (l == NULL || l->pNo->prox == NULL) {
+    if (l == NULL || l->pElemento->prox == NULL) {
         printf("Lista vazia");
         return;
     }
 
-    No *i = l->pNo;
+    Elemento *i = l->pElemento;
 
     while(i != NULL) {
-        No *j = l->pNo;
+        Elemento *j = l->pElemento;
         while(j->prox != NULL) {
-            if(j->chave > j->prox->chave) {
+            if(j->valor > j->prox->valor) {
                 trocaValores(j, j->prox);
             }
 
@@ -35,18 +35,18 @@ void bubblesort(Lista *l) {
 }
 
 void selectionsort(Lista *l) {
-    if(l == NULL || l->pNo == NULL) {
+    if(l == NULL || l->pElemento == NULL) {
         printf("Lista vazia");
         return;
     }
 
-    No *i = l->pNo, *j, *min;
+    Elemento *i = l->pElemento, *j, *min;
 
     while(i->prox != NULL) {
         min = i;
         j = min->prox;
         while(j != NULL) {
-            if(j->chave < min->chave) {
+            if(j->valor < min->valor) {
                 min = j;
             }
 

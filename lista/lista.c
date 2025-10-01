@@ -13,29 +13,30 @@ Lista *criaLista()
     if (lista == NULL)
     {
         printf("Erro ao cria a lista\n");
+        return NULL;
     }
 
-    lista->pNo = NULL;
+    lista->pElemento = NULL;
 
     return lista;
 }
 
 void destruirLista(Lista *l)
 {
-    No *aux, *aux2;
+    Elemento *atual, *removido;
     if (l == NULL)
     {
         printf("Lista == NULL\n");
         return;
     }
 
-    aux = l->pNo;
+    atual = l->pElemento;
 
-    while (aux != NULL)
+    while (atual != NULL)
     {
-        aux2 = aux;
-        aux = aux->prox;
-        free(aux2);
+        removido = atual;
+        atual = atual->prox;
+        free(removido);
     }
 
     free(l);
@@ -44,7 +45,7 @@ void destruirLista(Lista *l)
 int tamanho(Lista *l)
 {
     int count = 0;
-    No *aux;
+    Elemento *aux;
 
     if (l == NULL)
     {
@@ -52,7 +53,7 @@ int tamanho(Lista *l)
         return 0;
     }
 
-    aux = l->pNo;
+    aux = l->pElemento;
 
     while (aux != NULL)
     {
@@ -63,9 +64,9 @@ int tamanho(Lista *l)
     return count;
 }
 
-No *buscaPeloIndice(Lista *l, int i)
+Elemento *buscaPeloIndice(Lista *l, int i)
 {
-    No *aux;
+    Elemento *aux;
     int count = 0;
 
     if (l == NULL)
@@ -80,7 +81,7 @@ No *buscaPeloIndice(Lista *l, int i)
         return NULL;
     }
 
-    aux = l->pNo;
+    aux = l->pElemento;
 
     while (count != i)
     {
@@ -101,9 +102,9 @@ No *buscaPeloIndice(Lista *l, int i)
     return aux;
 }
 
-No *buscaPelaChave(Lista *l, int c)
+Elemento *buscaPelaChave(Lista *l, int c)
 {
-    No *aux;
+    Elemento *aux;
 
     if (l == NULL)
     {
@@ -111,18 +112,18 @@ No *buscaPelaChave(Lista *l, int c)
         return NULL;
     }
 
-    aux = l->pNo;
+    aux = l->pElemento;
 
     while (aux->prox != NULL)
     {
-        if (aux->chave == c)
+        if (aux->valor == c)
         {
             break;
         }
         aux = aux->prox;
     }
 
-    if (aux->chave != c)
+    if (aux->valor != c)
     {
         return NULL;
     }
@@ -130,9 +131,9 @@ No *buscaPelaChave(Lista *l, int c)
     return aux;
 }
 
-No *adicionaItemNoFinal(Lista *l, int c)
+Elemento *adicionaItemNoFinal(Lista *l, int c)
 {
-    No *elemento, *aux;
+    Elemento *elemento, *aux;
 
     if (l == NULL)
     {
@@ -140,7 +141,7 @@ No *adicionaItemNoFinal(Lista *l, int c)
         return NULL;
     }
 
-    elemento = malloc(sizeof(No));
+    elemento = malloc(sizeof(Elemento));
 
     if (elemento == NULL)
     {
@@ -148,16 +149,16 @@ No *adicionaItemNoFinal(Lista *l, int c)
         return NULL;
     }
 
-    elemento->chave = c;
+    elemento->valor = c;
     elemento->prox = NULL;
 
-    if (l->pNo == NULL)
+    if (l->pElemento == NULL)
     {
-        l->pNo = elemento;
+        l->pElemento = elemento;
     }
     else
     {
-        aux = l->pNo;
+        aux = l->pElemento;
 
         while (aux->prox != NULL)
         {
@@ -169,9 +170,9 @@ No *adicionaItemNoFinal(Lista *l, int c)
     return elemento;
 }
 
-No *adicionaItemNoInicio(Lista *l, int c)
+Elemento *adicionaItemNoInicio(Lista *l, int c)
 {
-    No *elemento, *aux;
+    Elemento *elemento, *aux;
 
     if (l == NULL)
     {
@@ -179,21 +180,21 @@ No *adicionaItemNoInicio(Lista *l, int c)
         return NULL;
     }
 
-    elemento = malloc(sizeof(No));
+    elemento = malloc(sizeof(Elemento));
 
-    elemento->chave = c;
+    elemento->valor = c;
     elemento->prox = NULL;
 
-    if (l->pNo == NULL)
+    if (l->pElemento == NULL)
     {
-        l->pNo = elemento;
+        l->pElemento = elemento;
     }
     else
     {
-        aux = l->pNo;
+        aux = l->pElemento;
         elemento->prox = aux;
 
-        l->pNo = elemento;
+        l->pElemento = elemento;
     }
 
     return elemento;
@@ -201,23 +202,23 @@ No *adicionaItemNoInicio(Lista *l, int c)
 
 void imprimeLista(Lista *l)
 {
-    No *aux;
+    Elemento *aux;
     int count = 0;
 
-    if (l == NULL || l->pNo == NULL)
+    if (l == NULL || l->pElemento == NULL)
     {
         printf("Lista vazia\n");
         return;
     }
 
-    aux = l->pNo;
+    aux = l->pElemento;
 
     int t = tamanho(l);
 
     printf("[");
     while (aux != NULL)
     {
-        printf("%d", aux->chave);
+        printf("%d", aux->valor);
         if(count != t-1) {
             printf(",");
         }
